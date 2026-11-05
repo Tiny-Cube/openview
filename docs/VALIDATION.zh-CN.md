@@ -20,6 +20,8 @@
 
 本次验证没有重新运行真实FCHK/CHK/LOG语料、真实Gaussian或formchk，也没有进行帧率基准。单元测试中的合成文件不替代实文件验收。Linux CI矩阵已配置，远程运行状态以GitHub Actions为准。
 
+首次GitHub Actions中，依赖安装、单元测试和核心解析基准通过，创建图形窗口时Qt xcb插件加载失败、退出134。旧CI安装了Mesa DRI驱动但未显式安装提供libGL.so.1的libgl1。后续补齐libgl1及libx11-xcb1，并增加 `tools/check_qt_runtime.py` 预检，直接列出未解析的共享库。矩阵不再因首个失败取消其它组合，失败时也保留已有产物；修复后的各组合结果以对应Actions运行记录为准。
+
 ## 历史Linux记录
 
 2026-10-26，改名前的实现已有Intel Iris Plus桌面和Xvfb/llvmpipe测试记录，包括实文件打开、编辑、GJF往返、50原子FCHK/CHK及另外12份CHK对照。原记录保存在独立本地研究工作区，不随本仓库打包；这里不将它们表述为此次OpenView改名后的重新验收。

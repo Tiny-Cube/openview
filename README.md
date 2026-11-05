@@ -27,7 +27,7 @@ uv run --no-sync python -m openview --version
 Ubuntu/Debian 若缺少 Qt 图形依赖，可安装：
 
 ```sh
-sudo apt install libegl1 libgl1 libxcb-cursor0 libxkbcommon-x11-0
+sudo apt install libegl1 libgl1 libx11-xcb1 libxcb-cursor0 libxkbcommon-x11-0
 ```
 
 Wayland 插件存在兼容问题时可尝试 `QT_QPA_PLATFORM=xcb sh run.sh`。诊断软件渲染时可设置 `LIBGL_ALWAYS_SOFTWARE=1`；软件渲染性能与硬件加速结果需分别判断。
