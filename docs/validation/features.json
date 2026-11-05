@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "IR broadening and plot",
+    "SCF energy plot",
+    "vibration displacement",
+    "trajectory playback",
+    "Gaussian input preview and electron parity",
+    "background marching cubes",
+    "signed isosurface GPU rendering",
+    "superseded parser cancellation",
+    "failed load retains current molecule",
+    "double/triple/remove bond GPU instances and undo"
+  ],
+  "expected_invalid_file_message": [
+    "ValueError: Truncated XYZ coordinates"
+  ],
+  "unexpected_errors": [],
+  "platform": "linux"
+}

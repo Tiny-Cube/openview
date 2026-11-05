@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "N: keyboard element selection, default palette click, New molecule and OpenGL render",
+    "O: keyboard element selection, default palette click, New molecule and OpenGL render",
+    "F: keyboard element selection, default palette click, New molecule and OpenGL render",
+    "P: keyboard element selection, default palette click, New molecule and OpenGL render",
+    "S: keyboard element selection, default palette click, New molecule and OpenGL render",
+    "Fe: keyboard element selection, default palette click, New molecule and OpenGL render",
+    "Fe: horizontal scrolling exposes ten-coordinate template and builds 11 atoms",
+    "methylamine: viewport attachment consumes H, Ctrl+Z/redo restores topology, GJF export succeeds",
+    "methanol: viewport attachment consumes H, Ctrl+Z/redo restores topology, GJF export succeeds"
+  ],
+  "gpu": "llvmpipe (LLVM 23.1.1, 256 bits) / 4.6 (Core Profile) Mesa 26.2.4-arch1.1",
+  "errors": []
+}

@@ -1,0 +1,40 @@
+name: Linux checks
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  linux:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04]
+        python: ['3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    env:
+      UV_PYTHON: ${{ matrix.python }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: sudo apt-get update && sudo apt-get install -y xvfb libegl1 libgl1-mesa-dri libxcb-cursor0 libxkbcommon-x11-0 libxcb-icccm4 libxcb-keysyms1 libxcb-xinerama0 libxcb-image0 libxcb-render-util0
+      - run: uv sync --frozen --extra dev --python '${{ matrix.python }}'
+      - run: uv run --no-sync pytest -q
+      - run: sh -n install.sh run.sh
+      - run: uv run --no-sync python tools/benchmark_core.py
+      - run: uv run --no-sync xvfb-run -a python tools/check_gui.py --atoms 10000 --frames 90 --out analysis/linux-gui.json
+        env:
+          QT_QPA_PLATFORM: xcb
+          LIBGL_ALWAYS_SOFTWARE: '1'
+      - run: uv run --no-sync xvfb-run -a python tools/check_features.py
+        env:
+          QT_QPA_PLATFORM: xcb
+          LIBGL_ALWAYS_SOFTWARE: '1'
+      - run: uv run --no-sync xvfb-run -a python tools/check_interaction.py
+        env:
+          QT_QPA_PLATFORM: xcb
+          LIBGL_ALWAYS_SOFTWARE: '1'
+      - run: uv build
+      - run: uv run --no-sync python tools/verify_distribution.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openview-${{ matrix.os }}-py${{ matrix.python }}
+          path: |
+            dist/
+            analysis/linux-gui.*
+            analysis/core-benchmark.json

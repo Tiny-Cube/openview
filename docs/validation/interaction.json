@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "selection changes atom pixels only",
+    "bond GPU bytes unchanged by selection",
+    "crisp half-bond element colors",
+    "light dropdown background and dark text, including selected rows",
+    "clicked placement follows rotated/panned/zoomed view and anchor depth",
+    "optional single bond to selected anchor",
+    "new atom selected for chaining",
+    "camera preserved on add",
+    "undo restores geometry and bonds",
+    "C-click selects anchor without replacing",
+    "build click replaces element and undo restores it",
+    "drag rotates without adding",
+    "Esc returns to selection; empty click clears",
+    "right and Ctrl drag roll/zoom; middle drag pans",
+    "A/N select all/none",
+    "bonding-off placement preserves existing topology",
+    "geometry dialog keyboard edit, preview, commit and undo"
+  ],
+  "errors": [],
+  "platform": "linux",
+  "gpu": "llvmpipe (LLVM 23.1.1, 256 bits) / 4.6 (Core Profile) Mesa 26.2.4-arch1.1"
+}

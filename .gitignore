@@ -1,0 +1,42 @@
+# Python environments and generated files
+.venv/
+.verify-env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Local research, input corpora and generated validation output
+/analysis/
+/validation/
+original/
+gv.zip
+*.zip
+*.exe
+*.dll
+*.so
+*.so.*
+*.chk
+*.fchk
+*.fch
+*.log
+*.out
+*.tar.gz
+node_modules/
+
+# Credentials and editor state
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.idea/
+.vscode/
+*~
+core
+core.*

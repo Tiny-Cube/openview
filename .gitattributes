@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+# Gaussian input uses a terminating blank line.
+*.gjf whitespace=-blank-at-eof

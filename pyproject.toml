@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openview"
+version = "0.3.0"
+description = "A modern, responsive molecular workbench for Linux"
+authors = [{name = "Tiny-Cube", email = "1620836684@qq.com"}]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "PySide6-Essentials>=6.7,<7", "moderngl>=5.10,<6", "scikit-image>=0.22,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build>=1"]
+
+[project.scripts]
+openview = "openview.app:main"
+
+[project.urls]
+Repository = "https://github.com/Tiny-Cube/openview"
+Issues = "https://github.com/Tiny-Cube/openview/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+openview = ["data/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

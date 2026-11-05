@@ -1,0 +1,3397 @@
+{
+  "provenance": {
+    "archive_sha256": "f8911e41650742d378eee5f597353ad6b48601e1b8d4cc57afafe079548c2326",
+    "element_table_sha256": "59d195382f155986bf429f7507ecdea9d284dbc1e52e72cbfcf9e73f9c661ced",
+    "radius_library_sha256": "28fac908c0610fa735a4eaaaec5f95a921c0f9aab64d2e5793e3b5c92fed158d",
+    "scope": "29 original coordination patterns; symbol-matched real elements; directions normalized; artwork independently drawn"
+  },
+  "templates": [
+    {
+      "key": "atom",
+      "name": "Atom",
+      "orders": [],
+      "directions": [],
+      "source": "gv/data/elements/fragments/atom.frg",
+      "source_sha256": "0610ca2a0041566800ac933bfd57672b8e630a4c5b2247204952623c8791454b"
+    },
+    {
+      "key": "sing",
+      "name": "Terminal (S)",
+      "orders": [
+        1
+      ],
+      "directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/sing.frg",
+      "source_sha256": "474f7bf6a21818ff4e665011b4f995aaf8740390abbdfc9812e15b325aa6abd5"
+    },
+    {
+      "key": "dit",
+      "name": "Terminal (T)",
+      "orders": [
+        3
+      ],
+      "directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/dit.frg",
+      "source_sha256": "38cd868dfe58f63cd3a7b041d30ac73375e5117684400f799fc03abd25a0e636"
+    },
+    {
+      "key": "lin",
+      "name": "Linear (S-S)",
+      "orders": [
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/lin.frg",
+      "source_sha256": "1baecacc8eacb93329875913fe8d2c92195898fe2ce4205994a5ea78aaa3ca65"
+    },
+    {
+      "key": "st",
+      "name": "Divalent (S-T)",
+      "orders": [
+        3,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/dist.frg",
+      "source_sha256": "686d0429fe8ed492e457b18f3af7eacc8e38d00ae61a5ffafe48c0b8a3b748dc"
+    },
+    {
+      "key": "dd",
+      "name": "Divalent (D-D)",
+      "orders": [
+        2,
+        2
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/didd.frg",
+      "source_sha256": "070d68c09d470a4a9e84b437ff515affec0a6d243692376425d84c1f0b895af8"
+    },
+    {
+      "key": "trid",
+      "name": "Trivalent (D-LP-LP)",
+      "orders": [
+        2
+      ],
+      "directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/trid.frg",
+      "source_sha256": "ba4b70d1d486ad6af483085d8c4275234ab1f5f2f7c9ef99eca6169f34b0e0b0"
+    },
+    {
+      "key": "trisd",
+      "name": "Trivalent (S-D-LP)",
+      "orders": [
+        2,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.5000000016,
+          -0.8660254028,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/trisd.frg",
+      "source_sha256": "203fe2e85bf98fb5c1b9f256e57b75b72d44c238622b71f4c1ba774618301fea"
+    },
+    {
+      "key": "triaa",
+      "name": "Trivalent (A-A-LP)",
+      "orders": [
+        1.5,
+        1.5
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.5000000016,
+          0.8660254028,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/triaa.frg",
+      "source_sha256": "ad531adad0627cbb48771e74ae983940d4b3bd7a0cd37265f5fc15732ecb7d02"
+    },
+    {
+      "key": "tripla",
+      "name": "Trigonal Planar",
+      "orders": [
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.5000000016,
+          0.8660254028,
+          0.0
+        ],
+        [
+          -0.5000000016,
+          -0.8660254028,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/tripla.frg",
+      "source_sha256": "c936ed8ae59535040bc45164436bf2648fab3b3a7aa93b265b69df2496f3e62c"
+    },
+    {
+      "key": "tshap",
+      "name": "T-shaped",
+      "orders": [
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/tshap.frg",
+      "source_sha256": "7ef88e8bf20716f0ce036fd1100b94fbd69a8cd98753a54b6978213261ae153b"
+    },
+    {
+      "key": "ssd",
+      "name": "Trivalent (S-S-D)",
+      "orders": [
+        2,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.4982838759,
+          0.867013944,
+          0.0
+        ],
+        [
+          0.4982838759,
+          -0.867013944,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/trissd.frg",
+      "source_sha256": "add9be0cf6e42196fb6fbfeda4eec552ea7473f6e2eaf4784a9d9d23ac08570c"
+    },
+    {
+      "key": "saa",
+      "name": "Trivalent (S-A-A)",
+      "orders": [
+        1.5,
+        1.5,
+        1
+      ],
+      "directions": [
+        [
+          0.4982838759,
+          0.867013944,
+          0.0
+        ],
+        [
+          0.4982838759,
+          -0.867013944,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/trisaa.frg",
+      "source_sha256": "0950b1e8cafe9d928d3087f3d49613d1113edf136e903889f59e56778fa5a85b"
+    },
+    {
+      "key": "bent",
+      "name": "Tetravalent (S-S-LP-LP)",
+      "orders": [
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.3338068603,
+          0.9426414907,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/bent.frg",
+      "source_sha256": "d77afcef6d1a925c528152100ce64910863366833eac54591b5fb2de543c7bfe"
+    },
+    {
+      "key": "tetsss",
+      "name": "Tetravalent (S-S-S-LP)",
+      "orders": [
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.3333218926,
+          -0.9428130864,
+          0.0
+        ],
+        [
+          0.3333391031,
+          0.4714001777,
+          0.8164967329
+        ],
+        [
+          0.3333391031,
+          0.4714001777,
+          -0.8164967329
+        ]
+      ],
+      "source": "gv/data/elements/fragments/tetsss.frg",
+      "source_sha256": "161f10ec34656068036a06cc72fea045361b5b140abd801e6f87d09dbb28cdc1"
+    },
+    {
+      "key": "tet",
+      "name": "Tetrahedral",
+      "orders": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.3333218926,
+          -0.9428130864,
+          0.0
+        ],
+        [
+          0.3333391031,
+          0.4714001777,
+          0.8164967329
+        ],
+        [
+          0.3333391031,
+          0.4714001777,
+          -0.8164967329
+        ],
+        [
+          -0.9999999999,
+          1.23215e-05,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/tet.frg",
+      "source_sha256": "8aa6e02df31f1359fb76130f4e4bc29e2eb19e67b0d08a8b505279bb013f0b8c"
+    },
+    {
+      "key": "sqpla",
+      "name": "Square Planar",
+      "orders": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/sqpla.frg",
+      "source_sha256": "fd4208a9ec444b330db5534a6ade85997a022925af6c188bde91f34a5c020afb"
+    },
+    {
+      "key": "seesaw",
+      "name": "Seesaw",
+      "orders": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -0.5000000016,
+          0.8660254028,
+          0.0
+        ],
+        [
+          -0.5000000016,
+          -0.8660254028,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/seesaw.frg",
+      "source_sha256": "4b29aa9ba2a3d1a2d1b42ea16878fbf8c01939afbfbfa7576d579bc318bf7faa"
+    },
+    {
+      "key": "tribipyr",
+      "name": "Trigonal Bipyramid",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -0.5000000016,
+          0.8660254028,
+          0.0
+        ],
+        [
+          -0.5000000016,
+          -0.8660254028,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/tribipyr.frg",
+      "source_sha256": "4697ef77fb364c7539ef04dcf9f798d87772f22fd81725c63dda3c8868c1d58b"
+    },
+    {
+      "key": "oct",
+      "name": "Octahedral",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/oct.frg",
+      "source_sha256": "dc37a67f26f579d600ed3b15983d1a4ab6621181faacde9b9b4d5c1dc0a1e9cd"
+    },
+    {
+      "key": "triaprism",
+      "name": "Trigonal Antiprismatic (D3d)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.5936547639,
+          -0.3427468637,
+          -0.7280787105
+        ],
+        [
+          -0.5936547639,
+          0.3427468637,
+          0.7280787105
+        ],
+        [
+          0.5936547639,
+          0.3427468637,
+          0.7280787105
+        ],
+        [
+          0.0,
+          0.6854936387,
+          -0.7280786162
+        ],
+        [
+          0.0,
+          -0.6854936387,
+          0.7280786162
+        ],
+        [
+          -0.5936547639,
+          -0.3427468637,
+          -0.7280787105
+        ]
+      ],
+      "source": "gv/data/elements/fragments/triaprism.frg",
+      "source_sha256": "bfab7b52655cdf304f166958eb8238c62364ed10e0500571eadd25905f3a88cf"
+    },
+    {
+      "key": "pentbipyr",
+      "name": "Pentagonal Bipyramid (D5h)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -0.9510549374,
+          0.3090218536,
+          0.0
+        ],
+        [
+          -0.5877850845,
+          -0.8090171163,
+          0.0
+        ],
+        [
+          0.5877850845,
+          -0.8090171163,
+          0.0
+        ],
+        [
+          0.9510549374,
+          0.3090218536,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/pentbipyr.frg",
+      "source_sha256": "11455fcdd97a3f4aed39a2bf46e5bf330ea82c76bec2ba91156f1402de07648f"
+    },
+    {
+      "key": "captrig",
+      "name": "Capped Trigonal Prismatic (C2v)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          -0.6484019566,
+          -0.6433198312,
+          -0.4070804557
+        ],
+        [
+          0.0,
+          -0.6150986488,
+          0.7884501583
+        ],
+        [
+          0.0,
+          0.6150986488,
+          0.7884501583
+        ],
+        [
+          -0.6484019566,
+          0.6433198312,
+          -0.4070804557
+        ],
+        [
+          0.6484019566,
+          0.6433198312,
+          -0.4070804557
+        ],
+        [
+          0.6484019566,
+          -0.6433198312,
+          -0.4070804557
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/captrig.frg",
+      "source_sha256": "aa88a7f4f82ec4cb5b8b226187a52c2a56e3c7a9c8f7bc91bb7f85b0fa689ff2"
+    },
+    {
+      "key": "capoct",
+      "name": "Capped Octahedral (C3v)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          -0.6863329061,
+          -0.396254181,
+          0.609860448
+        ],
+        [
+          0.0,
+          0.7925086513,
+          0.6098606706
+        ],
+        [
+          0.6863329061,
+          -0.396254181,
+          0.609860448
+        ],
+        [
+          0.8285874604,
+          0.4783851748,
+          -0.2908443654
+        ],
+        [
+          0.0,
+          -0.9567703751,
+          -0.2908443732
+        ],
+        [
+          -0.8285874604,
+          0.4783851748,
+          -0.2908443654
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/capoct.frg",
+      "source_sha256": "2983860e31f7f8d8990d4a77266c320f0abfb0247b2f5305bdf0bc0f34dfb878"
+    },
+    {
+      "key": "sqaprism",
+      "name": "Square Antiprismatic (D4d)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.8227371064,
+          0.0,
+          0.5684220735
+        ],
+        [
+          -0.8227371064,
+          0.0,
+          0.5684220735
+        ],
+        [
+          0.0,
+          0.8227371064,
+          0.5684220735
+        ],
+        [
+          0.0,
+          -0.8227371064,
+          0.5684220735
+        ],
+        [
+          0.5817633387,
+          0.5817633387,
+          -0.5684213539
+        ],
+        [
+          0.5817633387,
+          -0.5817633387,
+          -0.5684213539
+        ],
+        [
+          -0.5817633387,
+          -0.5817633387,
+          -0.5684213539
+        ],
+        [
+          -0.5817633387,
+          0.5817633387,
+          -0.5684213539
+        ]
+      ],
+      "source": "gv/data/elements/fragments/sqaprism.frg",
+      "source_sha256": "a753ad8f546f89f9a25c349e4ff5ceafff5b90179eeee154ec6a38c127f3a5b3"
+    },
+    {
+      "key": "dodec",
+      "name": "Dodecahedral (D2d)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          -0.98046732,
+          0.0,
+          -0.1966820642
+        ],
+        [
+          -0.5021331773,
+          0.0,
+          0.8647903054
+        ],
+        [
+          0.0,
+          0.5021331773,
+          -0.8647903054
+        ],
+        [
+          0.0,
+          0.98046732,
+          0.1966820642
+        ],
+        [
+          0.0,
+          -0.5021331773,
+          -0.8647903054
+        ],
+        [
+          0.5021331773,
+          0.0,
+          0.8647903054
+        ],
+        [
+          0.0,
+          -0.98046732,
+          0.1966820642
+        ],
+        [
+          0.98046732,
+          0.0,
+          -0.1966820642
+        ]
+      ],
+      "source": "gv/data/elements/fragments/dodec.frg",
+      "source_sha256": "4a617377c804a5b2b733af877f1d2cb20ef715af0f0df9083aa6f40ca167ae65"
+    },
+    {
+      "key": "tricap",
+      "name": "Tricapped Trigonal Prismatic (D3h)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.0,
+          0.7754005845,
+          0.6314696616
+        ],
+        [
+          0.6715167542,
+          -0.3876998581,
+          0.6314697688
+        ],
+        [
+          0.6715167542,
+          -0.3876998581,
+          -0.6314697688
+        ],
+        [
+          0.0,
+          0.7754005845,
+          -0.6314696616
+        ],
+        [
+          -0.6715167542,
+          -0.3876998581,
+          -0.6314697688
+        ],
+        [
+          -0.6715167542,
+          -0.3876998581,
+          0.6314697688
+        ],
+        [
+          -0.8660253028,
+          0.5000001748,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.8660253028,
+          0.5000001748,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/tricap.frg",
+      "source_sha256": "105847978ad9185696122b5bb4ba247d19e61e90d5b62ea49bc3d931fa7a2dcc"
+    },
+    {
+      "key": "capsq",
+      "name": "Capped Square Antiprismatic (C4v)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.3551565576,
+          0.9348068355,
+          0.0
+        ],
+        [
+          0.3224217323,
+          0.467403612,
+          -0.8231513166
+        ],
+        [
+          0.3224217323,
+          0.467403612,
+          0.8231513166
+        ],
+        [
+          0.1546890169,
+          -0.7990370871,
+          -0.5810430634
+        ],
+        [
+          0.1546890169,
+          -0.7990370871,
+          0.5810430634
+        ],
+        [
+          -0.8018840041,
+          -0.1391800007,
+          0.581043003
+        ],
+        [
+          -0.8018841157,
+          -0.1391790201,
+          -0.5810430839
+        ],
+        [
+          -0.5678217051,
+          -0.8231515725,
+          0.0
+        ]
+      ],
+      "source": "gv/data/elements/fragments/capsq.frg",
+      "source_sha256": "90ede0f583f71621514e4986e7b0f2ff83fcccc13068463444aa6d99a363d493"
+    },
+    {
+      "key": "pentprism",
+      "name": "Pentagonal Prismatic (D5h)",
+      "orders": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "directions": [
+        [
+          0.7450521851,
+          0.2420820602,
+          -0.6215251544
+        ],
+        [
+          0.4604680172,
+          -0.6337790236,
+          0.6215250232
+        ],
+        [
+          -0.4604680172,
+          -0.6337790236,
+          0.6215250232
+        ],
+        [
+          0.7450521851,
+          0.2420820602,
+          0.6215251544
+        ],
+        [
+          -0.7450521851,
+          0.2420820602,
+          0.6215251544
+        ],
+        [
+          0.0,
+          0.7833942018,
+          0.6215251601
+        ],
+        [
+          0.0,
+          0.7833942018,
+          -0.6215251601
+        ],
+        [
+          -0.7450521851,
+          0.2420820602,
+          -0.6215251544
+        ],
+        [
+          -0.4604680172,
+          -0.6337790236,
+          -0.6215250232
+        ],
+        [
+          0.4604680172,
+          -0.6337790236,
+          -0.6215250232
+        ]
+      ],
+      "source": "gv/data/elements/fragments/pentprism.frg",
+      "source_sha256": "d89a43098099acf70aa892c32817c9c5c4204d4dbc44d05a4373ebfba6f748b1"
+    }
+  ],
+  "elements": {
+    "H": {
+      "name": "Hydrogen",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "He": {
+      "name": "Helium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "oct"
+      ]
+    },
+    "Li": {
+      "name": "Lithium",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "Be": {
+      "name": "Beryllium",
+      "default": "lin",
+      "templates": [
+        "atom",
+        "sing",
+        "lin"
+      ]
+    },
+    "B": {
+      "name": "Boron",
+      "default": "tripla",
+      "templates": [
+        "atom",
+        "tripla"
+      ]
+    },
+    "C": {
+      "name": "Carbon",
+      "default": "tet",
+      "templates": [
+        "atom",
+        "st",
+        "dd",
+        "ssd",
+        "saa",
+        "tet"
+      ]
+    },
+    "N": {
+      "name": "Nitrogen",
+      "default": "tetsss",
+      "templates": [
+        "atom",
+        "dit",
+        "trisd",
+        "triaa",
+        "tetsss"
+      ]
+    },
+    "O": {
+      "name": "Oxygen",
+      "default": "bent",
+      "templates": [
+        "atom",
+        "trid",
+        "bent"
+      ]
+    },
+    "F": {
+      "name": "Fluorine",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "Ne": {
+      "name": "Neon",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "oct"
+      ]
+    },
+    "Na": {
+      "name": "Sodium",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "Mg": {
+      "name": "Magnesium",
+      "default": "lin",
+      "templates": [
+        "atom",
+        "sing",
+        "lin"
+      ]
+    },
+    "Al": {
+      "name": "Aluminum",
+      "default": "tripla",
+      "templates": [
+        "atom",
+        "tripla"
+      ]
+    },
+    "Si": {
+      "name": "Silicon",
+      "default": "tet",
+      "templates": [
+        "atom",
+        "st",
+        "dd",
+        "ssd",
+        "saa",
+        "tet",
+        "tribipyr"
+      ]
+    },
+    "P": {
+      "name": "Phosphorus",
+      "default": "tetsss",
+      "templates": [
+        "atom",
+        "trisd",
+        "tripla",
+        "tetsss",
+        "tet",
+        "tribipyr",
+        "oct"
+      ]
+    },
+    "S": {
+      "name": "Sulfur",
+      "default": "bent",
+      "templates": [
+        "atom",
+        "trid",
+        "ssd",
+        "bent",
+        "tet",
+        "tribipyr",
+        "oct"
+      ]
+    },
+    "Cl": {
+      "name": "Chlorine",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing",
+        "lin",
+        "tripla",
+        "tet",
+        "tribipyr",
+        "oct"
+      ]
+    },
+    "Ar": {
+      "name": "Argon",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "oct"
+      ]
+    },
+    "K": {
+      "name": "Potassium",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "Ca": {
+      "name": "Calcium",
+      "default": "lin",
+      "templates": [
+        "atom",
+        "sing",
+        "lin"
+      ]
+    },
+    "Sc": {
+      "name": "Scandium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ti": {
+      "name": "Titanium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "V": {
+      "name": "Vanadium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Cr": {
+      "name": "Chromium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Mn": {
+      "name": "Manganese",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Fe": {
+      "name": "Iron",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Co": {
+      "name": "Cobalt",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ni": {
+      "name": "Nickel",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Cu": {
+      "name": "Copper",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Zn": {
+      "name": "Zinc",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ga": {
+      "name": "Gallium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ge": {
+      "name": "Germanium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "As": {
+      "name": "Arsenic",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Se": {
+      "name": "Selenium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Br": {
+      "name": "Bromine",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing",
+        "lin",
+        "tripla",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Kr": {
+      "name": "Krypton",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "oct"
+      ]
+    },
+    "Rb": {
+      "name": "Rubidium",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "Sr": {
+      "name": "Strontium",
+      "default": "lin",
+      "templates": [
+        "atom",
+        "sing",
+        "lin"
+      ]
+    },
+    "Y": {
+      "name": "Yttrium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Zr": {
+      "name": "Zirconium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Nb": {
+      "name": "Niobium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Mo": {
+      "name": "Molybdenum",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Tc": {
+      "name": "Technetium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ru": {
+      "name": "Ruthenium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Rh": {
+      "name": "Rhodium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Pd": {
+      "name": "Palladium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ag": {
+      "name": "Silver",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Cd": {
+      "name": "Cadmium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "In": {
+      "name": "Indium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Sn": {
+      "name": "Tin",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Sb": {
+      "name": "Antimony",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Te": {
+      "name": "Tellurium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "I": {
+      "name": "Iodine",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "lin",
+        "tripla",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Xe": {
+      "name": "Xenon",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "oct"
+      ]
+    },
+    "Cs": {
+      "name": "Cesium",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "Ba": {
+      "name": "Barium",
+      "default": "lin",
+      "templates": [
+        "atom",
+        "sing",
+        "lin"
+      ]
+    },
+    "La": {
+      "name": "Lanthanum",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ce": {
+      "name": "Cerium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Pr": {
+      "name": "Praseodymium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Nd": {
+      "name": "Neodymium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Pm": {
+      "name": "Promethium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Sm": {
+      "name": "Samarium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Eu": {
+      "name": "Europium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Gd": {
+      "name": "Gadolinium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Tb": {
+      "name": "Terbium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Dy": {
+      "name": "Dysprosium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ho": {
+      "name": "Holmium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Er": {
+      "name": "Erbium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Tm": {
+      "name": "Thulium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Yb": {
+      "name": "Ytterbium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Lu": {
+      "name": "Lutetium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Hf": {
+      "name": "Hafnium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ta": {
+      "name": "Tantalum",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "W": {
+      "name": "Tungsten",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Re": {
+      "name": "Rhenium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Os": {
+      "name": "Osmium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ir": {
+      "name": "Iridium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Pt": {
+      "name": "Platinum",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Au": {
+      "name": "Gold",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Hg": {
+      "name": "Mercury",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Tl": {
+      "name": "Thallium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Pb": {
+      "name": "Lead",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Bi": {
+      "name": "Bismuth",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Po": {
+      "name": "Polonium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "At": {
+      "name": "Astatine",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "lin",
+        "tripla",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Rn": {
+      "name": "Radon",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "sing",
+        "oct"
+      ]
+    },
+    "Fr": {
+      "name": "Francium",
+      "default": "sing",
+      "templates": [
+        "atom",
+        "sing"
+      ]
+    },
+    "Ra": {
+      "name": "Radium",
+      "default": "lin",
+      "templates": [
+        "atom",
+        "sing",
+        "lin"
+      ]
+    },
+    "Ac": {
+      "name": "Actinium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Th": {
+      "name": "Thorium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Pa": {
+      "name": "Protactinium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "U": {
+      "name": "Uranium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Np": {
+      "name": "Neptunium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Pu": {
+      "name": "Plutonium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Am": {
+      "name": "Americium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Cm": {
+      "name": "Curium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Bk": {
+      "name": "Berkelium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Cf": {
+      "name": "Californium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Es": {
+      "name": "Einsteinium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Fm": {
+      "name": "Fermium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Md": {
+      "name": "Mendelevium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "No": {
+      "name": "Nobelium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Lr": {
+      "name": "Lawrencium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Rf": {
+      "name": "Rutherfordium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Db": {
+      "name": "Dubnium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Sg": {
+      "name": "Seaborgium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Bh": {
+      "name": "Bohrium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Hs": {
+      "name": "Hassium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Mt": {
+      "name": "Meitnerium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Ds": {
+      "name": "Darmstadtium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    },
+    "Rg": {
+      "name": "Roentgenium",
+      "default": "oct",
+      "templates": [
+        "atom",
+        "lin",
+        "tripla",
+        "tshap",
+        "tet",
+        "sqpla",
+        "seesaw",
+        "tribipyr",
+        "oct",
+        "triaprism",
+        "pentbipyr",
+        "captrig",
+        "capoct",
+        "sqaprism",
+        "dodec",
+        "tricap",
+        "capsq",
+        "pentprism"
+      ]
+    }
+  },
+  "covalent_radii": {
+    "H": 0.3,
+    "He": 1.16,
+    "Li": 1.23,
+    "Be": 0.89,
+    "B": 0.88,
+    "C": 0.77,
+    "N": 0.7,
+    "O": 0.66,
+    "F": 0.58,
+    "Ne": 0.55,
+    "Na": 1.4,
+    "Mg": 1.36,
+    "Al": 1.25,
+    "Si": 1.17,
+    "P": 1.05,
+    "S": 1.01,
+    "Cl": 0.99,
+    "Ar": 1.58,
+    "K": 2.03,
+    "Ca": 1.74,
+    "Sc": 1.44,
+    "Ti": 1.32,
+    "V": 1.2,
+    "Cr": 1.13,
+    "Mn": 1.17,
+    "Fe": 1.16,
+    "Co": 1.16,
+    "Ni": 1.15,
+    "Cu": 1.17,
+    "Zn": 1.25,
+    "Ga": 1.25,
+    "Ge": 1.22,
+    "As": 1.21,
+    "Se": 1.17,
+    "Br": 1.14,
+    "Kr": 1.89,
+    "Rb": 2.25,
+    "Sr": 1.92,
+    "Y": 1.62,
+    "Zr": 1.45,
+    "Nb": 1.34,
+    "Mo": 1.29,
+    "Tc": 1.23,
+    "Ru": 1.24,
+    "Rh": 1.25,
+    "Pd": 1.28,
+    "Ag": 1.34,
+    "Cd": 1.41,
+    "In": 1.5,
+    "Sn": 1.4,
+    "Sb": 1.41,
+    "Te": 1.37,
+    "I": 1.33,
+    "Xe": 2.09,
+    "Cs": 2.35,
+    "Ba": 1.98,
+    "La": 1.69,
+    "Ce": 1.65,
+    "Pr": 1.65,
+    "Nd": 1.64,
+    "Pm": 1.64,
+    "Sm": 1.66,
+    "Eu": 1.85,
+    "Gd": 1.61,
+    "Tb": 1.59,
+    "Dy": 1.59,
+    "Ho": 1.58,
+    "Er": 1.57,
+    "Tm": 1.56,
+    "Yb": 1.7,
+    "Lu": 1.56,
+    "Hf": 1.44,
+    "Ta": 1.34,
+    "W": 1.3,
+    "Re": 1.28,
+    "Os": 1.26,
+    "Ir": 1.26,
+    "Pt": 1.29,
+    "Au": 1.34,
+    "Hg": 1.44,
+    "Tl": 1.55,
+    "Pb": 1.54,
+    "Bi": 1.52,
+    "Po": 1.53,
+    "At": 1.52,
+    "Rn": 1.53,
+    "Fr": 2.45,
+    "Ra": 2.02,
+    "Ac": 1.7,
+    "Th": 1.63,
+    "Pa": 1.46,
+    "U": 1.4,
+    "Np": 1.36,
+    "Pu": 1.25,
+    "Am": 1.57,
+    "Cm": 1.58,
+    "Bk": 1.54,
+    "Cf": 1.53,
+    "Es": 1.84,
+    "Fm": 1.61,
+    "Md": 1.5,
+    "No": 1.49,
+    "Lr": 1.38,
+    "Rf": 1.36,
+    "Db": 1.26,
+    "Sg": 1.2,
+    "Bh": 1.16,
+    "Hs": 1.14,
+    "Mt": 1.06,
+    "Ds": 1.28,
+    "Rg": 1.21
+  }
+}
