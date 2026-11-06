@@ -22,6 +22,8 @@
 
 首次GitHub Actions中，依赖安装、单元测试和核心解析基准通过，创建图形窗口时Qt xcb插件加载失败、退出134。旧CI安装了Mesa DRI驱动但未显式安装提供libGL.so.1的libgl1。后续补齐libgl1及libx11-xcb1，并增加 `tools/check_qt_runtime.py` 预检，直接列出未解析的共享库。矩阵不再因首个失败取消其它组合，失败时也保留已有产物；修复后的各组合结果以对应Actions运行记录为准。
 
+2026-11-06，第二次CI预检明确列出 `libxcb-shape.so.0 => not found`。根据实际loader结果补上Ubuntu的 `libxcb-shape0`，同时完善README中的X11依赖安装命令。没有跳过Qt预检或缩减图形检查来制造通过。
+
 ## 历史Linux记录
 
 2026-10-26，改名前的实现已有Intel Iris Plus桌面和Xvfb/llvmpipe测试记录，包括实文件打开、编辑、GJF往返、50原子FCHK/CHK及另外12份CHK对照。原记录保存在独立本地研究工作区，不随本仓库打包；这里不将它们表述为此次OpenView改名后的重新验收。

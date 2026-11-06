@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: sudo apt-get update && sudo apt-get install -y xvfb libegl1 libgl1 libgl1-mesa-dri libx11-xcb1 libxcb-cursor0 libxkbcommon-x11-0 libxcb-icccm4 libxcb-keysyms1 libxcb-xinerama0 libxcb-image0 libxcb-render-util0
+      - run: sudo apt-get update && sudo apt-get install -y xvfb libegl1 libgl1 libgl1-mesa-dri libx11-xcb1 libxcb-cursor0 libxcb-shape0 libxkbcommon-x11-0 libxcb-icccm4 libxcb-keysyms1 libxcb-xinerama0 libxcb-image0 libxcb-render-util0
       - run: uv sync --frozen --extra dev --python '${{ matrix.python }}'
       - run: uv run --no-sync python tools/check_qt_runtime.py
       - run: uv run --no-sync pytest -q
