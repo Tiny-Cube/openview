@@ -1,12 +1,12 @@
 # OpenView
 
-面向 Linux 桌面的独立分子工作台，使用 Python、Qt 6 和 OpenGL。目标是提供直观的分子显示与编辑，并逐步对齐 GaussView 的操作习惯。原项目名为 GV Next，当前版本为 **0.3.0**，尚未完整复刻 GaussView。
+面向 Linux 桌面的独立分子工作台，使用 Python、Qt 6 和 OpenGL。当前版本 **0.4.0** 优先提供完整的日常流程：打开文件 → 显示分子 → 直观编辑 → 保存可重读结构，不等待完整复刻 GaussView。
 
 ![OpenView 分子编辑界面](docs/images/openview.png)
 
 ## 安装和运行
 
-需要 [uv](https://docs.astral.sh/uv/)、图形桌面及支持 OpenGL 3.3 的驱动。Python 和依赖由项目内 `.venv` 管理，不需要修改系统 Python。
+需要 [uv](https://docs.astral.sh/uv/)、图形桌面及支持 OpenGL 3.3 的驱动。安装/运行脚本默认把环境和缓存放在项目内 `.venv` / `.uv-cache`，不需要修改系统 Python；可用 `UV_CACHE_DIR` 覆盖缓存位置。
 
 ```sh
 git clone https://github.com/Tiny-Cube/openview.git
@@ -36,6 +36,7 @@ Wayland 插件存在兼容问题时可尝试 `QT_QPA_PLATFORM=xcb sh run.sh`。�
 ## 当前功能
 
 - 球棍、棒状和空间填充显示；旋转、平移、缩放、选择及距离/键角/二面角测量。
+- 点击、矩形和画笔选择；C/R/B 临时工具，F 点击扩展到连接片段，Home 适配视图；File/Edit/View/Help 菜单和内置操作说明。
 - 添加或删除原子、修改元素和键级、元素构型 Fragment、键长/键角/二面角预览编辑、撤销与重做。
 - GJF 导出及显式连接保留，XYZ 导出、PNG 截图、能量和 IR 数据导出。
 - 多帧轨迹与振动播放，已有 CUBE 数据的等值面显示。
@@ -61,7 +62,9 @@ OPENVIEW_FORMCHK=/path/to/formchk sh run.sh molecule.chk
 
 左键拖动旋转；中键或 Shift+左键平移；右键或 Ctrl+左键水平拖动滚转、垂直拖动缩放；滚轮缩放。选择原子后，可设置键级或编辑几何。选择元素及 Fragment 后，在空白处放置，或点击已有原子进行替换/拼接。`Ctrl+Z` 撤销，`Ctrl+Shift+Z` 重做，`Ctrl+S` 预览并保存 GJF。
 
-完整 Clean、全部 SmartSlide 策略、所有结果分析与原版快捷键仍未实现。当前 `F` 用于适配视图，与原版片段扩展选择存在差异。编辑结构会清除失效的计算结果，避免将旧数据套到新几何上。详见[使用说明与限制](docs/USAGE.zh-CN.md)。
+按住 `R` 拖动框选，`Ctrl+R` 拖动追加框选；按住 `B` 拖动追加画笔选择；按住 `C` 临时点击选择，构建模式也可用。`F`＋点击切换整个连接片段，`Home` 适配视图。也可用视口上方的 Click/Rectangle/Brush 选择持久工具；矩形在鼠标释放时提交。
+
+完整 Clean、全部 SmartSlide 策略、F/Alt 片段几何拖动、所有结果分析与原版快捷键仍未实现。编辑结构会清除失效的计算结果，避免将旧数据套到新几何上。详见[使用说明与限制](docs/USAGE.zh-CN.md)和[0.4.0 版本说明](docs/RELEASE-0.4.0.zh-CN.md)。
 
 ## 开发与验证
 
@@ -71,6 +74,7 @@ uv run --no-sync pytest -q
 uv run --no-sync python tools/check_interaction.py
 uv run --no-sync python tools/check_features.py
 uv run --no-sync python tools/check_element_palette.py --out validation/elements
+uv run --no-sync python tools/check_selection.py
 uv build
 uv run --no-sync python tools/verify_distribution.py
 ```

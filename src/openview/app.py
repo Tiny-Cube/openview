@@ -14,7 +14,7 @@ from PySide6.QtWidgets import (QApplication,QMainWindow,QWidget,QVBoxLayout,QHBo
     QSlider,QSpinBox,QDoubleSpinBox,QFormLayout,QDialog,QDialogButtonBox,QLineEdit,
     QPlainTextEdit,QGroupBox,QScrollArea,QHeaderView,QAbstractItemView,QCheckBox,QSizePolicy)
 from .formats import save_xyz,gaussian_text
-from .model import Molecule,SYMBOLS,element,measure
+from .model import Molecule,SYMBOLS,element,measure,connected_fragment
 from .renderer import MolecularView
 from .table import AtomTable
 from .plots import Plot,spectrum
@@ -86,7 +86,7 @@ class MainWindow(QMainWindow):
         self.action(toolbar,'Gaussian input',self.gaussian)
         self.action(toolbar,'Save PNG',self.screenshot)
         toolbar.addSeparator(); self.style=QComboBox(); self.style.addItems(['Ball & stick','Space filling','Sticks']); toolbar.addWidget(self.style)
-        self.action(toolbar,'Fit [F]',lambda:self.view.fit())
+        self.action(toolbar,'Fit [Home]',lambda:self.view.fit())
         self.action(toolbar,'Undo',self.undo,QKeySequence.StandardKey.Undo)
         self.action(toolbar,'Redo',self.redo,QKeySequence.StandardKey.Redo)
         root=QWidget(); self.setCentralWidget(root); outer=QVBoxLayout(root); outer.setContentsMargins(12,12,12,8)
@@ -96,6 +96,9 @@ class MainWindow(QMainWindow):
         center=QWidget(); cl=QVBoxLayout(center); cl.setContentsMargins(0,0,0,0)
         edit_tools=QHBoxLayout(); cl.addLayout(edit_tools)
         self.select_tool=button('Select / rotate',lambda:self.set_edit_mode('select'),edit_tools);self.select_tool.setCheckable(True);self.select_tool.setChecked(True)
+        self.selection_tool=QComboBox();self.selection_tool.addItems(['Click','Rectangle','Brush'])
+        self.selection_tool.setToolTip('Selection tool. Hold C/R/B for a temporary tool; F-click selects a connected fragment.')
+        edit_tools.addWidget(self.selection_tool)
         self.add_tool=button('Build / replace',self.add_atom,edit_tools);self.add_tool.setCheckable(True)
         edit_tools.addWidget(QLabel('Element'))
         self.add_element=QComboBox();self.add_element.addItems(SYMBOLS[1:]);self.add_element.setCurrentText('C');self.add_element.setMinimumWidth(75)
@@ -117,11 +120,13 @@ class MainWindow(QMainWindow):
         self.frame_label=QLabel('Frame —'); controls.addWidget(self.frame_label)
         self.fps=QSpinBox(); self.fps.setRange(1,60); self.fps.setValue(30); self.fps.setSuffix(' fps'); controls.addWidget(self.fps)
         self.fps.valueChanged.connect(lambda v:self.animation.setInterval(round(1000/v)))
-        hint=QLabel('Left drag: rotate · Middle/Shift drag: pan · Right/Ctrl drag: roll/zoom · A/N: all/none · Hold C: select'); hint.setObjectName('muted'); hint.setWordWrap(True); cl.addWidget(hint)
+        hint=QLabel('Left: rotate · Middle/Shift: pan · Right/Ctrl: roll/zoom · Hold C/R/B: click/box/brush · F-click: fragment · Home: fit'); hint.setObjectName('muted'); hint.setWordWrap(True); cl.addWidget(hint)
         split.addWidget(center)
         self.tabs=QTabWidget(); self.tabs.setMinimumWidth(350); split.addWidget(self.tabs); split.setSizes([910,430])
         self.build_structure(); self.build_results(); self.build_surfaces(); self.build_jobs()
         self.view.atomPicked.connect(self.pick); self.view.graphicsError.connect(lambda s:self.statusBar().showMessage(s))
+        self.view.selectionRequested.connect(self.apply_selection)
+        self.selection_tool.currentIndexChanged.connect(self.change_selection_tool)
         self.view.placementRequested.connect(self.place_atom);self.view.exitPlacement.connect(lambda:self.set_edit_mode('select'))
         self.view.replacementRequested.connect(self.replace_atom)
         self.view.selectAllRequested.connect(self.select_all)
@@ -132,12 +137,49 @@ class MainWindow(QMainWindow):
         self.status.setSizePolicy(QSizePolicy.Policy.Ignored,QSizePolicy.Policy.Preferred)
         self.perf=QLabel(); self.statusBar().addPermanentWidget(self.perf)
         self.stats_timer=QTimer(self); self.stats_timer.setInterval(1000); self.stats_timer.timeout.connect(self.refresh_stats); self.stats_timer.start()
+        self.build_menus(toolbar)
         self.example()
 
     def action(self,toolbar,text,fn,shortcut=None):
         action=QAction(text,self); action.triggered.connect(fn)
         if shortcut:action.setShortcut(shortcut)
         toolbar.addAction(action); return action
+
+    def build_menus(self,toolbar):
+        actions={a.text():a for a in toolbar.actions() if a.text()}
+        file_menu=self.menuBar().addMenu('&File')
+        for name in ('New molecule','Open','Example') :file_menu.addAction(actions[name])
+        file_menu.addSeparator()
+        for name in ('Save GJF','Export XYZ','Save PNG'):file_menu.addAction(actions[name])
+        file_menu.addSeparator();self.action(file_menu,'Quit',self.close,QKeySequence.StandardKey.Quit)
+        edit_menu=self.menuBar().addMenu('&Edit')
+        edit_menu.addAction(actions['Undo']);edit_menu.addAction(actions['Redo'])
+        redo_shortcuts=QKeySequence.keyBindings(QKeySequence.StandardKey.Redo)
+        if QKeySequence('Ctrl+Shift+Z') not in redo_shortcuts:redo_shortcuts.append(QKeySequence('Ctrl+Shift+Z'))
+        actions['Redo'].setShortcuts(redo_shortcuts)
+        edit_menu.addSeparator();self.action(edit_menu,'Select all atoms',self.select_all)
+        self.action(edit_menu,'Clear selection',self.clear_selection)
+        self.action(edit_menu,'Delete selected atoms',self.delete_atoms)
+        self.action(edit_menu,'Edit distance / angle / dihedral…',self.edit_geometry)
+        view_menu=self.menuBar().addMenu('&View')
+        view_menu.addAction(actions['Fit [Home]'])
+        for index,name in enumerate(('Click selection','Rectangle selection','Brush selection')):
+            self.action(view_menu,name,lambda checked=False,i=index:self.selection_tool.setCurrentIndex(i))
+        help_menu=self.menuBar().addMenu('&Help')
+        self.action(help_menu,'Mouse and keyboard controls',self.show_controls)
+        self.action(help_menu,'About OpenView',lambda:QMessageBox.about(self,'About OpenView',
+            f'OpenView {__version__}\nIndependent molecular workbench for Linux.\nTiny-Cube · 1620836684@qq.com\n\nGJF / LOG / FCHK; CHK supports identified layouts or an external formchk.\nGaussian is not included.'))
+
+    def show_controls(self):
+        QMessageBox.information(self,'OpenView controls',
+            'View: left drag rotates; middle or Shift+left pans; right or Ctrl+left rolls and zooms. Wheel zooms; Home fits.\n\n'
+            'Select: click atoms in measurement order. Hold C for clicks, R for a rectangle, B for a brush. Rectangle replaces the selection; Ctrl+rectangle adds. Brush adds atoms. Hold F and click for a connected fragment. A/N select all/none.\n\n'
+            'Build: choose an element and Fragment, then click empty space to insert, H/open valence to attach, or a heavy atom to replace. Hold C to select without replacing. Esc returns to selection.\n\n'
+            'Edit: select 2–4 atoms for distance/angle/dihedral editing. Set selected bond changes the bond order. Delete removes selected atoms; Ctrl+Z undoes, Ctrl+Shift+Z redoes.\n\n'
+            'Save: Ctrl+S previews a GJF with explicit connections. XYZ does not store bond orders. Geometry edits clear stale calculation results.')
+
+    def change_selection_tool(self,index):
+        self.set_edit_mode('select');self.view.set_selection_mode(('click','rectangle','brush')[index]);self.view.setFocus()
 
     def build_structure(self):
         scroll=QScrollArea();scroll.setWidgetResizable(True)
@@ -309,9 +351,24 @@ class MainWindow(QMainWindow):
     def pick(self,index):
         if self.loading:return
         if index<0:self.selection=[]
+        elif self.view.fragment_select_held:
+            indices=connected_fragment(self.molecule.bonds,len(self.molecule.numbers),index)
+            selected=set(self.selection);fragment=set(indices)
+            self.selection=([i for i in self.selection if i not in fragment] if all(i in selected for i in indices)
+                            else self.selection+[i for i in indices if i not in selected])
         elif index in self.selection:self.selection.remove(index)
         else:self.selection.append(index)
         self.sync_selection()
+
+    def apply_selection(self,indices,additive=False):
+        if self.loading or self.molecule is None:return
+        selected=set(self.selection) if additive else set()
+        result=list(self.selection) if additive else []
+        for index in indices:
+            index=int(index)
+            if 0<=index<len(self.molecule.numbers) and index not in selected:
+                result.append(index);selected.add(index)
+        if result!=self.selection:self.selection=result;self.sync_selection()
     def sync_selection(self):
         sm=self.table.selectionModel(); sm.blockSignals(True); sm.clearSelection()
         # Batch contiguous ranges: selecting a large molecule must not issue N Qt updates.
@@ -423,7 +480,7 @@ class MainWindow(QMainWindow):
         if mode=='add':
             self.animation.stop();self.mode_active=False;self.play.setText('▶ Play');self.show_frame(self.frame)
             self.edit_hint.setText(f'{self.add_element.currentText()}: click empty space to place a fragment; click H or an orange endpoint to extend; click a heavy atom to replace its coordination. Hold C: select · Esc: finish.')
-        else:self.edit_hint.setText('Click atoms to select; click empty space to clear. Choose an element to insert or replace. Delete removes selected atoms; Ctrl+Z undoes.')
+        else:self.edit_hint.setText('Click atoms in measurement order; R-drag selects a box, B-drag brushes, F-click selects a connected fragment. Home fits the view. Choose an element to build; Ctrl+Z undoes.')
 
     def place_atom(self,position):
         if self.molecule is None or self.loading:return

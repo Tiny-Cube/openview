@@ -1,0 +1,40 @@
+{
+  "full_detail_bonds": false,
+  "idle_repaint_count": 0,
+  "background_load_seconds": 0.5799585879976803,
+  "heartbeats_during_load": 58,
+  "integration_checks": [
+    "GPU rendering",
+    "background file load",
+    "atom selection",
+    "distance",
+    "coordinate edit/undo",
+    "delete/undo"
+  ],
+  "errors": [],
+  "gpu": "Mesa Intel(R) Iris(R) Plus Graphics (ICL GT2) / 4.6 (Core Profile) Mesa 26.2.4-arch1.1",
+  "atoms": 10000,
+  "trajectory": true,
+  "platform": "linux",
+  "viewport_pixels": [
+    975,
+    256
+  ],
+  "completed_frame_interval_ms": {
+    "median": 16.67907999944873,
+    "p95": 16.95126300037373,
+    "max": 30.313521001517074
+  },
+  "fps": 59.944090876134624,
+  "ui_heartbeat_ms": {
+    "median": 10.426017001009313,
+    "p95": 16.955927451817843,
+    "max": 176.63407500003814
+  },
+  "cpu_paint_ms": {
+    "median": 4.565759998513386,
+    "p95": 5.162562999612416
+  },
+  "draw_calls": 2,
+  "elapsed_seconds": 2.936835448999773
+}

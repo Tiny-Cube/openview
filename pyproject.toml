@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "openview"
-version = "0.3.0"
+version = "0.4.0"
 description = "A modern, responsive molecular workbench for Linux"
 authors = [{name = "Tiny-Cube", email = "1620836684@qq.com"}]
 license = "MIT"

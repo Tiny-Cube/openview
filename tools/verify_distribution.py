@@ -13,7 +13,7 @@ def main():
     version = re.search(r'^version = "([^"]+)"', (root / 'pyproject.toml').read_text(), re.M)[1]
     wheel = root / 'dist' / f'openview-{version}-py3-none-any.whl'
     source = root / 'dist' / f'openview-{version}.tar.gz'
-    forbidden_parts = {'.git', '.venv', 'node_modules', 'original', 'analysis', '__pycache__'}
+    forbidden_parts = {'.git', '.venv', '.uv-cache', 'node_modules', 'original', 'analysis', '__pycache__'}
     forbidden_suffixes = {'.exe', '.dll', '.so', '.key', '.pem', '.chk', '.fchk', '.zip'}
 
     def allowed(name):
@@ -29,6 +29,7 @@ def main():
         names = archive.namelist()
         for name in names:
             allowed(name)
+            assert not archive.read(name).startswith((b'\x7fELF', b'MZ', b'PK\x03\x04')), name
         runtime = {name for name in names if name.startswith('openview/') and not name.endswith('/')}
         assert runtime == expected.keys(), (runtime ^ expected.keys())
         for name, path in expected.items():
@@ -44,6 +45,8 @@ def main():
             allowed(member.name)
             assert member.name.startswith(f'openview-{version}/') or (member.name == f'openview-{version}' and member.isdir())
             assert not member.issym() and not member.islnk(), member.name
+            if member.isfile():
+                assert not archive.extractfile(member).read(4).startswith((b'\x7fELF', b'MZ', b'PK\x03\x04')), member.name
         for relative in ['README.md', 'LICENSE', 'uv.lock', 'run.sh', 'install.sh',
                          'src/openview/app.py', 'src/openview/data/element_fragments.json',
                          'docs/VALIDATION.zh-CN.md', 'docs/validation/interaction.json',

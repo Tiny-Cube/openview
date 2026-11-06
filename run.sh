@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
 APP_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+export UV_CACHE_DIR="${UV_CACHE_DIR:-$APP_ROOT/.uv-cache}"
 if [ ! -x "$APP_ROOT/.venv/bin/python" ]; then
     printf '%s\n' 'Run sh install.sh first.' >&2
     exit 1

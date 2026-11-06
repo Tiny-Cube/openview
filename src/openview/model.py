@@ -18,6 +18,22 @@ def element(value):
     if not z: raise ValueError(f"Unknown element: {value!r}")
     return z
 
+def connected_fragment(bonds, atom_count, start):
+    """Return a connected component in atom order, including isolated atoms."""
+    if not 0 <= start < atom_count:
+        return []
+    adjacency = [[] for _ in range(atom_count)]
+    for a, b, order in bonds:
+        if order > 0:
+            a, b = int(a), int(b)
+            adjacency[a].append(b); adjacency[b].append(a)
+    seen = {start}; pending = [start]
+    while pending:
+        for other in adjacency[pending.pop()]:
+            if other not in seen:
+                seen.add(other); pending.append(other)
+    return sorted(seen)
+
 @dataclass
 class Molecule:
     numbers: np.ndarray

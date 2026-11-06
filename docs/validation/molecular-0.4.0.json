@@ -1,0 +1,87 @@
+{
+  "scope": "OpenView0.4.0 local acceptance summary;input files and proprietary data excluded",
+  "files": [
+    {
+      "format": "FCHK",
+      "atoms": 50,
+      "bonds": 57,
+      "frames": 1,
+      "frequencies": 144,
+      "reader": "formatted",
+      "ui_heartbeats_during_load": 202,
+      "edit_checks": [
+        "table coordinate edit",
+        "original bond orders retained",
+        "GJF save/reopen",
+        "coordinate undo",
+        "atom delete/remap",
+        "topology undo"
+      ]
+    },
+    {
+      "format": "CHK",
+      "atoms": 50,
+      "bonds": 57,
+      "frames": 1,
+      "frequencies": 0,
+      "reader": "native-64",
+      "ui_heartbeats_during_load": 65,
+      "edit_checks": [
+        "table coordinate edit",
+        "original bond orders retained",
+        "GJF save/reopen",
+        "coordinate undo",
+        "atom delete/remap",
+        "topology undo"
+      ]
+    },
+    {
+      "format": "LOG",
+      "atoms": 3,
+      "bonds": 2,
+      "frames": 4,
+      "frequencies": 3,
+      "reader": ".out",
+      "ui_heartbeats_during_load": 59,
+      "edit_checks": [
+        "table coordinate edit",
+        "original bond orders retained",
+        "GJF save/reopen",
+        "coordinate undo",
+        "atom delete/remap",
+        "topology undo"
+      ]
+    },
+    {
+      "format": "GJF",
+      "atoms": 2,
+      "bonds": 0,
+      "frames": 1,
+      "frequencies": 0,
+      "reader": ".gjf",
+      "ui_heartbeats_during_load": 73,
+      "edit_checks": [
+        "table coordinate edit",
+        "original bond orders retained",
+        "GJF save/reopen",
+        "coordinate undo",
+        "atom delete/remap",
+        "topology undo"
+      ]
+    }
+  ],
+  "checkpoint_coordinate_max_error_angstrom": 4.76837158203125e-07,
+  "checks": [
+    "supplied CHK/FCHK atoms, positions, charge/spin and explicit bond orders agree",
+    "standalone native CHK, without companion FCHK",
+    "real GPU display for FCHK/CHK/LOG/GJF",
+    "background parsing keeps Qt event loop active",
+    "selection and measurement",
+    "edit/export/reopen/undo for all four formats",
+    "add atom dialog and undo",
+    "FCHK vibration animation",
+    "all original input files unchanged"
+  ],
+  "errors": [],
+  "gpu": "llvmpipe (LLVM 23.1.1, 256 bits) / 4.6 (Core Profile) Mesa 26.2.4-arch1.1"
+}

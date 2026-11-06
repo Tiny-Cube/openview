@@ -3,9 +3,10 @@ import math
 import time
 import numpy as np
 import moderngl
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Qt, Signal, QRect
 from PySide6.QtGui import QPainter, QColor
 from PySide6.QtOpenGLWidgets import QOpenGLWidget
+from PySide6.QtWidgets import QRubberBand
 from .model import COLORS, RADII
 
 SPHERE_VERT='''#version 330
@@ -88,6 +89,7 @@ void main(){float l=.25+.75*abs(dot(normalize(normal),normalize(vec3(-.4,.65,1))
 
 class MolecularView(QOpenGLWidget):
     atomPicked=Signal(int)
+    selectionRequested=Signal(object,bool)
     placementRequested=Signal(object)
     replacementRequested=Signal(int)
     selectAllRequested=Signal()
@@ -108,6 +110,11 @@ class MolecularView(QOpenGLWidget):
         self.paint_times=[]; self.gpu_info=''; self.draw_calls=0
         self.interaction_mode='select'
         self.click_select_held=False
+        self.fragment_select_held=False
+        self.selection_mode='click'; self.held_selection_modes=[]
+        self.selection_drag=None; self.brush_seen=set()
+        self.rubber_band=QRubberBand(QRubberBand.Shape.Rectangle,self)
+        self.rubber_band.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
         self.force_full_bonds=False
 
     def initializeGL(self):
@@ -156,6 +163,7 @@ class MolecularView(QOpenGLWidget):
         return np.array([self.scale*aspect,self.scale,max(self.scale*20,self.depth)],dtype='f4')
 
     def set_molecule(self,mol):
+        self.cancel_selection_drag()
         self.molecule=mol; self.positions=mol.frames[0]; self.selection=[]
         self.surfaces=[]; self.surface_dirty=True; self.dirty=True;self.bonds_dirty=True; self.fit()
 
@@ -173,8 +181,42 @@ class MolecularView(QOpenGLWidget):
     def set_selection(self,selection): self.selection=list(selection); self.dirty=True; self.update()
 
     def set_interaction_mode(self,mode):
+        self.cancel_selection_drag()
         self.interaction_mode=mode
         self.setCursor(Qt.CursorShape.CrossCursor if mode=='add' else Qt.CursorShape.ArrowCursor)
+
+    def set_selection_mode(self,mode):
+        if mode not in ('click','rectangle','brush'):
+            raise ValueError('Unknown selection mode')
+        self.cancel_selection_drag(); self.selection_mode=mode
+
+    def cancel_selection_drag(self):
+        self.selection_drag=None; self.brush_seen.clear(); self.last=None
+        self.rubber_band.hide()
+
+    def effective_selection_mode(self):
+        if self.click_select_held or self.fragment_select_held:return 'click'
+        if self.held_selection_modes:return self.held_selection_modes[-1][1]
+        return self.selection_mode if self.interaction_mode=='select' else 'click'
+
+    def hit_atom(self,position):
+        if self.positions is None or not len(self.positions):return -1
+        xy,z=self.project(); point=np.array([position.x(),position.y()])
+        distance=np.linalg.norm(xy-point,axis=1)
+        radii=np.clip(RADII[self.molecule.numbers]*.48,.19,.8)
+        if self.style=='Space filling':radii=np.clip(RADII[self.molecule.numbers]*1.65,.55,2.8)
+        if self.style=='Sticks':radii=np.full(len(z),.14)
+        screen=radii*self.height()/(2*self.scale)
+        hit=np.flatnonzero(distance<np.maximum(7,screen))
+        if not len(hit):return -1
+        distance_world=distance[hit]*2*self.scale/max(1,self.height())
+        front=z[hit]+np.sqrt(np.maximum(0,radii[hit]**2-distance_world**2))
+        return int(hit[np.argmax(front)])
+
+    def brush_at(self,position):
+        index=self.hit_atom(position)
+        if index>=0 and index not in self.brush_seen:
+            self.brush_seen.add(index); self.selectionRequested.emit([index],True)
 
     def _upload(self):
         if self.molecule is None: return
@@ -298,9 +340,20 @@ class MolecularView(QOpenGLWidget):
     def mousePressEvent(self,event):
         self.setFocus(Qt.FocusReason.MouseFocusReason)
         self.last=event.position(); self.press=event.position(); self.dragged=False
+        mode=self.effective_selection_mode()
+        if event.button()==Qt.MouseButton.LeftButton and not event.modifiers() & Qt.KeyboardModifier.ShiftModifier and mode in ('rectangle','brush'):
+            self.selection_drag=mode; self.brush_seen.clear()
+            if mode=='rectangle':
+                self.rubber_band.setGeometry(QRect(self.press.toPoint(),self.press.toPoint()))
+                self.rubber_band.show()
+            else:self.brush_at(event.position())
 
     def mouseMoveEvent(self,event):
         if self.last is None: return
+        if self.selection_drag:
+            if self.selection_drag=='rectangle':self.rubber_band.setGeometry(QRect(self.press.toPoint(),event.position().toPoint()).normalized())
+            else:self.brush_at(event.position())
+            return
         delta=event.position()-self.last; self.last=event.position()
         if (event.position()-self.press).manhattanLength()>4: self.dragged=True
         if not self.dragged:return
@@ -314,23 +367,25 @@ class MolecularView(QOpenGLWidget):
         self.update()
 
     def mouseReleaseEvent(self,event):
+        if self.selection_drag and event.button()==Qt.MouseButton.LeftButton:
+            if self.selection_drag=='rectangle' and self.positions is not None:
+                box=QRect(self.press.toPoint(),event.position().toPoint()).normalized()
+                xy,_=self.project()
+                inside=(xy[:,0]>=box.left())&(xy[:,0]<=box.right())&(xy[:,1]>=box.top())&(xy[:,1]<=box.bottom())
+                indices=np.flatnonzero(inside).tolist()
+                if box.width()<=4 and box.height()<=4:
+                    hit=self.hit_atom(event.position()); indices=[hit] if hit>=0 else []
+                self.selectionRequested.emit(indices,bool(event.modifiers() & Qt.KeyboardModifier.ControlModifier))
+            self.cancel_selection_drag();return
         click=self.last is not None and not self.dragged and (event.position()-self.press).manhattanLength()<=4
         if click and self.positions is not None and event.button()==Qt.MouseButton.LeftButton:
-            xy,z=self.project(); point=np.array([event.position().x(),event.position().y()])
-            d=np.linalg.norm(xy-point,axis=1)
-            radii=np.clip(RADII[self.molecule.numbers]*.48,.19,.8)
-            if self.style=='Space filling': radii=np.clip(RADII[self.molecule.numbers]*1.65,.55,2.8)
-            if self.style=='Sticks': radii=np.full(len(z),.14)
-            screen=radii*self.height()/(2*self.scale)
-            hit=np.flatnonzero(d<np.maximum(7,screen))
-            if len(hit):
-                # Compare front sphere surfaces when projected atoms overlap.
-                distance_world=d[hit]*2*self.scale/max(1,self.height())
-                front=z[hit]+np.sqrt(np.maximum(0,radii[hit]**2-distance_world**2))
-                index=int(hit[np.argmax(front)])
-                if self.interaction_mode=='add' and not self.click_select_held:self.replacementRequested.emit(index)
+            index=self.hit_atom(event.position())
+            selecting=self.click_select_held or self.fragment_select_held
+            if index>=0:
+                if self.interaction_mode=='add' and not selecting:self.replacementRequested.emit(index)
                 else:self.atomPicked.emit(index)
-            elif self.interaction_mode=='add' and not self.click_select_held:
+            elif self.interaction_mode=='add' and not selecting:
+                _,z=self.project()
                 depth=float(z[self.selection[0]]) if len(self.selection)==1 else 0.
                 self.placementRequested.emit(self.screen_to_world(event.position(),depth))
             else:self.atomPicked.emit(-1)
@@ -347,9 +402,14 @@ class MolecularView(QOpenGLWidget):
         self.scale=float(np.clip(self.scale*math.exp(-event.angleDelta().y()/120*.12),.25,100000)); self.update()
 
     def keyPressEvent(self,event):
-        if event.key()==Qt.Key.Key_F: self.fit()
-        elif event.key()==Qt.Key.Key_Escape:self.exitPlacement.emit()
+        if event.key()==Qt.Key.Key_Home:self.fit()
+        elif event.key()==Qt.Key.Key_F and not event.modifiers():self.fragment_select_held=True
+        elif event.key()==Qt.Key.Key_Escape:
+            self.cancel_selection_drag();self.held_selection_modes=[];self.fragment_select_held=False;self.click_select_held=False;self.exitPlacement.emit()
         elif event.key()==Qt.Key.Key_C and not event.modifiers():self.click_select_held=True
+        elif event.key() in (Qt.Key.Key_R,Qt.Key.Key_B) and not event.modifiers() & (Qt.KeyboardModifier.ShiftModifier|Qt.KeyboardModifier.AltModifier|Qt.KeyboardModifier.MetaModifier):
+            key=event.key();mode='rectangle' if key==Qt.Key.Key_R else 'brush'
+            if not event.isAutoRepeat():self.held_selection_modes.append((key,mode))
         elif event.key()==Qt.Key.Key_A and not event.modifiers():self.selectAllRequested.emit()
         elif event.key()==Qt.Key.Key_N and not event.modifiers():self.clearSelectionRequested.emit()
         elif event.key() in (Qt.Key.Key_Delete,Qt.Key.Key_Backspace):self.deleteRequested.emit()
@@ -366,8 +426,11 @@ class MolecularView(QOpenGLWidget):
 
     def keyReleaseEvent(self,event):
         if event.key()==Qt.Key.Key_C and not event.isAutoRepeat():self.click_select_held=False
+        elif event.key()==Qt.Key.Key_F and not event.isAutoRepeat():self.fragment_select_held=False
+        elif event.key() in (Qt.Key.Key_R,Qt.Key.Key_B) and not event.isAutoRepeat():
+            self.held_selection_modes=[entry for entry in self.held_selection_modes if entry[0]!=event.key()]
         else:super().keyReleaseEvent(event)
 
     def focusOutEvent(self,event):
-        self.click_select_held=False;self.last=None
+        self.click_select_held=False;self.fragment_select_held=False;self.held_selection_modes=[];self.cancel_selection_drag()
         super().focusOutEvent(event)

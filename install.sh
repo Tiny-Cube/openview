@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
 APP_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+export UV_CACHE_DIR="${UV_CACHE_DIR:-$APP_ROOT/.uv-cache}"
 command -v uv >/dev/null 2>&1 || {
     printf '%s\n' 'uv is required. Install uv, then run this script again.' >&2
     exit 1

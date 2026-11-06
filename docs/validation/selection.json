@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "R rectangle commits on mouse release even when R is released first;camera and table selection agree",
+    "Ctrl+rectangle adds another disconnected group without zooming",
+    "B brush adds each encountered atom once without toggling or rotating",
+    "F-click toggles the connected component and leaves disconnected atoms and camera unchanged",
+    "F-click in build mode selects a fragment without replacing the clicked atom",
+    "focus loss cancels an uncommitted rectangle and clears temporary modes",
+    "persistent rectangle tool,Home fit and File/Edit/View/Help menus available",
+    "selection never changes geometry,connectivity or the dirty flag",
+    "real Ctrl+Z and Ctrl+Shift+Z window shortcuts undo and redo without ambiguity"
+  ],
+  "errors": [],
+  "gpu": "llvmpipe (LLVM 23.1.1, 256 bits) / 4.6 (Core Profile) Mesa 26.2.4-arch1.1",
+  "platform": "linux"
+}
